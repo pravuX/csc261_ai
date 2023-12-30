@@ -44,7 +44,6 @@ heuristics = {
 
 
 def show_traversed_nodes(visited_arr):
-    # when passing visited
     order = "Order of Traversal: "
     order += ", ".join(visited_arr)
     print(order)
@@ -60,7 +59,6 @@ def a_star(source, destination):
     # list of expanded/ visited vertices
     visited = []
 
-    final_path_cost = 0
     while search_queue:
         # total_cost = total cost of the currently expanded node from source + heuristic value of that node
         # current_path = list of nodes from source to currently expanded node
@@ -76,7 +74,7 @@ def a_star(source, destination):
                 # most optimal path (i.e. shortest path)
                 show_traversed_nodes(visited)
                 # show the shortest path and it's cost
-                print(f"Cost: {final_path_cost}\nPath: {' -> '.join(current_path)}")
+                print(f"Cost: {total_cost}\nPath: {' --> '.join(current_path)}")
                 return True
             # expand the node for visiting
             for cost, child in graph[current_node]:

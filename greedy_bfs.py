@@ -69,8 +69,8 @@ def gbfs(source, destination):
         if not node in visited:
             visited.append((cost, node))
             if node == destination:
-                path = ' -> '.join([node for _, node in visited])
-                for cost, node in visited:
+                path = ' --> '.join([node for _, node in visited])
+                for cost, _ in visited:
                     total_cost += cost
                 print(f"Cost: {total_cost}\nPath: {path}")
                 return True

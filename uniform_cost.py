@@ -58,6 +58,7 @@ def uniform_cost(source, destination):
     while search_queue:
         # total_cost = total cost of the currently expanded node from source
         # current_path = list of nodes from source to currently expanded node
+        print(search_queue.queue)
         total_cost, current_path = search_queue.get()
         current_node = current_path[-1]  # last node in the current_path
         if not current_node in visited:
@@ -69,7 +70,7 @@ def uniform_cost(source, destination):
                 # most optimal path (i.e. shortest path)
                 show_traversed_nodes(visited)
                 # show the shortest path and it's cost
-                print(f"Cost: {total_cost}\nPath: {' -> '.join(current_path)}")
+                print(f"Cost: {total_cost}\nPath: {' --> '.join(current_path)}")
                 return True
             # expand the node for visiting
             for cost, child in graph[current_node]:

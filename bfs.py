@@ -10,12 +10,23 @@ graph = {
     "F": ("E", "G"),
     "G": ("F"),
 }
+
 # graph = {
 #     "S": ("A", "G"),
 #     "A": ("B", "C"),
 #     "B": ("D"),
 #     "C": ("D", "G"),
 #     "D": ("G"),
+#     "G": (),
+# }
+
+# graph = {
+#     "A": ("B", "C"),
+#     "B": ("D", "E"),
+#     "C": ("F", "G"),
+#     "D": (),
+#     "E": (),
+#     "F": (),
 #     "G": (),
 # }
 
@@ -28,6 +39,7 @@ def bfs(source, destination):
     visited = []
 
     while search_queue:
+        print(list(search_queue))
         node = search_queue.popleft()
         if not node in visited:
             visited.append(node)
@@ -35,8 +47,7 @@ def bfs(source, destination):
                 # show path
                 print(f"Path: {' --> '.join(visited)}")
                 return True
-            else:
-                search_queue += graph[node]
+            search_queue += graph[node]
     return False
 
 
