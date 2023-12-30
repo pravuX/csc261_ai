@@ -31,7 +31,7 @@ graph = {
 # }
 
 
-def bfs(source, destination, depth_limit):
+def dfs(source, destination, depth_limit):
     # create the search queue
     search_queue = LifoQueue()
     search_queue.put([source])
@@ -57,5 +57,5 @@ def bfs(source, destination, depth_limit):
 
 if __name__ == "__main__":
     d_limit = input("Enter the depth limit: ")
-    if(not bfs("A", "G", int(d_limit))):
+    if(not dfs("S", "G", int(d_limit))):
         print(f"Destination not found with within depth limit {d_limit}")

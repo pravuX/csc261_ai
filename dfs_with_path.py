@@ -31,7 +31,7 @@ graph = {
 # }
 
 
-def bfs(source, destination):
+def dfs(source, destination):
     # create the search queue
     search_queue = LifoQueue()
     search_queue.put([source])
@@ -55,4 +55,4 @@ def bfs(source, destination):
 
 
 if __name__ == "__main__":
-    bfs("S", "G")
+    dfs("S", "G")

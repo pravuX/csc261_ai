@@ -44,7 +44,7 @@ def agent():
     elif truth_values[x] == True:
         print("There is leak in kitchen.")
     elif truth_values[w] == True:
-        print("Water is from outide.")
+        print("Water is from outside.")
     else:
         print("The cause of leak is inconclusive.")
 
