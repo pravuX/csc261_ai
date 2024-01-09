@@ -2,25 +2,41 @@ from queue import PriorityQueue
 
 # unidrected
 
+# graph = {
+#     "S": {(6, "A"), (3, "D")},
+#     "A": {(5, "B"), (5, "D"), (6, "S")},
+#     "B": {(5, "A"), (4, "C"), (5, "E")},
+#     "C": {(4, "B")},
+#     "D": {(5, "A"), (3, "S"), (2, "E")},
+#     "E": {(2, "D"), (5, "B"), (4, "F")},
+#     "F": {(4, "E"), (3, "G")},
+#     "G": {(3, "F")},
+# }
+# heuristics = {
+#     "S": 12,
+#     "A": 8,
+#     "B": 7,
+#     "C": 5,
+#     "D": 9,
+#     "E": 4,
+#     "F": 2,
+#     "G": 0,
+# }
+
 graph = {
-    "S": {(6, "A"), (3, "D")},
-    "A": {(5, "B"), (5, "D"), (6, "S")},
-    "B": {(5, "A"), (4, "C"), (5, "E")},
-    "C": {(4, "B")},
-    "D": {(5, "A"), (3, "S"), (2, "E")},
-    "E": {(2, "D"), (5, "B"), (4, "F")},
-    "F": {(4, "E"), (3, "G")},
-    "G": {(3, "F")},
+        "S":{(1, "A"), (4, "B")},
+        "A":{(2, "B"), (5, "C"), (12, "G")},
+        "B":{(2, "C")},
+        "C":{(2, "G")},
+        "G":{}
 }
+
 heuristics = {
-    "S": 12,
-    "A": 8,
-    "B": 7,
-    "C": 5,
-    "D": 9,
-    "E": 4,
-    "F": 2,
-    "G": 0,
+        "S":7,
+        "A":6,
+        "B":2,
+        "C":1,
+        "G":0
 }
 
 # directed graph
@@ -44,8 +60,9 @@ heuristics = {
 
 
 def show_traversed_nodes(visited_arr):
-    order = "Order of Traversal: "
-    order += ", ".join(visited_arr)
+    order = "Order of Traversal:\n"
+    for total_cost, node in visited_arr:
+        order += node + f" with cost {total_cost}\n"
     print(order)
 
 
@@ -56,7 +73,7 @@ def a_star(source, destination):
     # (heuristic + total path cost from source, path from source as a list)
     search_queue.put((heuristics[source] + 0, [source]))
 
-    # list of expanded/ visited vertices
+    # list of expanded/ visited vertices along with their path costs
     visited = []
 
     while search_queue:
@@ -65,8 +82,8 @@ def a_star(source, destination):
         print(search_queue.queue)
         total_cost, current_path = search_queue.get()
         current_node = current_path[-1]  # last node in the current_path
-        if not current_node in visited:
-            visited.append(current_node)
+        if not (total_cost, current_node) in visited:
+            visited.append((total_cost, current_node))
             # when a goal state is visited
             if current_node == destination:
                 # using a priority queue ensures that the
