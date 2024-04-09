@@ -34,3 +34,4 @@ if __name__ == "__main__":
     ai_researcher = Job("AI Researcher", abc_company, "1.5 lacs pm")
     ram = Employee("Ram", "Nepal", "15 December 1990", 6, 75, ai_researcher)
     ram.describe()
+print("Unique Bhattarai, 28136/078, Lab No.10")

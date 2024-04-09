@@ -30,3 +30,4 @@ for epoch in range(epochs):
 for A in inputs:
     output = activate(w1 * A + b)
     print(f"Input: {A} Output: {output}")
+print("Unique Bhattarai, 28136/078, Lab No.17")

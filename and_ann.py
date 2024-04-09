@@ -48,7 +48,7 @@ for i in range(len(inputs)):
 
 # OR
 print("\nOR Gate")
-weights = [0.0, 0.0, 0.0]
+w1, w2, b = 0.0, 0.0, 0.0
 train(outputs_or)
 # testing
 for i in range(len(inputs)):

@@ -27,3 +27,4 @@ y_pred = gnb.predict(X_test)
 
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
+print("Unique Bhattarai, 28136/078, Lab No.15")
